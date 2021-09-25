@@ -14,7 +14,8 @@
   <body>
     <img class="header_logo" src="logo.png"></img>
     <div id="card">
-     <model-viewer src="tv.glb" camera-controls ar ar-modes="webxr scene-viewer quick-look"  camera-orbit="108.6deg 61.74deg 21.69m" poster="poster.png" auto-rotate>
+   <model-viewer src="tv.glb" ar ar-modes="scene-viewer webxr quick-look" camera-controls environment-image="neutral" poster="poster.webp" shadow-intensity="1">
+
     <div class="progress-bar hide" slot="progress-bar">
         <div class="update-bar"></div>
     </div>
@@ -25,6 +26,7 @@
         <img src="https://modelviewer.dev/shared-assets/icons/hand.png">
     </div>
 </model-viewer>
+
 <style>
   #error {
     background-color: #ffffffdd;
@@ -50,17 +52,6 @@
   </div>-->
  </body>
 </html>
-<script>
-  document.querySelector("#model-viewer").addEventListener('ar-status', (event) => {
-    if(event.detail.status === 'failed'){
-      const error = document.querySelector("#error");
-      error.classList.remove('hide');
-      error.addEventListener('transitionend',(event) => {
-        error.classList.add('hide');
-      });
-    }
-  });
-</script>
 
 <style>
     model-viewer {
